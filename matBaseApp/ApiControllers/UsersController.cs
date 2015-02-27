@@ -154,12 +154,7 @@ namespace vls.ApiControllers
                         throw new Exception(msg);
                     }
 
-                    userMan.AddToRole(user.Id, model.Roles);
-                    if (model.Roles.Contains("Agent"))
-                    {
-                        CreateAgentBranch(user, model.BranchId, db);
-                    }
-                    
+                    userMan.AddToRole(user.Id, model.Roles);                    
 
                     db.SaveChanges();
                     return DataHelpers.ReturnJsonData(user.Id, true, "Registration was successful. Please Verify your account");
@@ -171,21 +166,5 @@ namespace vls.ApiControllers
             }
         }
 
-        public void CreateAgentBranch(MyUser user, long branchId, DataContext db)
-        {
-            db.AgentBranches.Add(new AgentBranch
-            {
-                AgentId = user.Id,
-                BranchId = branchId
-            });
-        }
-
-        [HttpPost]
-        [Route("Home/Agents/get")]
-        [Route("Agents/get")]
-        public JsonData GetAgents()
-        {
-            return new UserRepo().GetAgents();
-        }
     }
 }

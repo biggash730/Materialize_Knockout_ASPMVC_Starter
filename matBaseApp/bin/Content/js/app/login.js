@@ -6,9 +6,10 @@
         self.Password = ko.observable();
         self.RememberMe = ko.observable(true);
         self.Validated = ko.observable(false);
+        self.showProgress = ko.observable(false);
         
         //Validate the form
-        $('#LoginForm').form(validationRules, {
+        /*$('#LoginForm').form(validationRules, {
             inline: true,
             on: 'blur',
             onFailure: function () {
@@ -18,18 +19,21 @@
                 //check the validation
                 self.Validated(true);
             }
-        });
+        });*/
         
-        self.login = function () {
+        self.login = function () {            
+            self.showProgress(true);
+            //todo: Validate form input
             if (self.Validated()) {
-                showNag("Login initiated", true);
+                toast('Login initiated', 3000, 'rounded')
                 $.post('users/login', { UserName: self.Username(), Password: self.Password(), RememberMe: self.RememberMe() }, function(rData) {
+                    self.showProgress(false);
                     if (rData.Success) {
                         showNag("Logged in Successfully", true);
                         localStorage.token = "Bearer " + rData.Message;
                         setTimeout(function() { return true; }, 3000);
                         window.location = "/Home/Index";
-                    } else showNag("Please check the login details", false);
+                    } else toast('Please check the login details', 6000, 'rounded')
 
                 });
                 //clear form 

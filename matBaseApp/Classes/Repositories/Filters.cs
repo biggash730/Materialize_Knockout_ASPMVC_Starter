@@ -240,14 +240,7 @@ namespace vls.Classes.Repositories
             if (DateFrom.Year > 1) query = query.Where(x => x.Date >= DateFrom);
             if (DateTo.Year > 1) query = query.Where(x => x.Date <= DateTo);
 
-            if (SenderCountryId > 0)
-            {
-                var agents =
-                    db.AgentBranches.Where(x => x.Branch.City.CountryId == SenderCountryId)
-                        .Select(x => x.AgentId)
-                        .ToList();
-                query = query.Where(q => agents.Contains(q.CreatedBy.Id));
-            }
+            
 
             if (Pager.Size > 0) query = query.OrderByDescending(x => x.Created).Skip(Pager.Skip()).Take(Pager.Size);
             return query;
@@ -321,12 +314,7 @@ namespace vls.Classes.Repositories
             if (DateFrom.Year > 1) query = query.Where(x => x.Date >= DateFrom);
             if (DateTo.Year > 1) query = query.Where(x => x.Date <= DateTo);
 
-            if (BranchId > 0)
-            {
-                var agents =
-                    db.AgentBranches.Where(x => x.BranchId == BranchId).Select(x=>x.AgentId).ToList();
-                query = query.Where(q => agents.Contains(q.CreatedBy.Id));
-            }
+            
 
             if (Pager.Size > 0) query = query.OrderByDescending(x => x.Date).Skip(Pager.Skip()).Take(Pager.Size);
             return query;

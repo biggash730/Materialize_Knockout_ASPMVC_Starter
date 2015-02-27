@@ -23,18 +23,13 @@ namespace vls.Migrations
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             //Create Roles if they do not exist
+            if (!roleManager.RoleExists("Superman"))
+            {
+                roleManager.Create(new IdentityRole("Superman"));
+            }
             if (!roleManager.RoleExists("Administrator"))
             {
                 roleManager.Create(new IdentityRole("Administrator"));
-            }
-
-            if (!roleManager.RoleExists("Agent"))
-            {
-                roleManager.Create(new IdentityRole("Agent"));
-            }
-            if (!roleManager.RoleExists("Audit"))
-            {
-                roleManager.Create(new IdentityRole("Audit"));
             }
 
 
@@ -42,7 +37,7 @@ namespace vls.Migrations
             //Create admin and super admin users with password=123456
             var admin = new MyUser
             {
-                UserName = "administrator",
+                UserName = "superman",
                 FullName = "Francis Miah",
                 Email = "francis@axoninfosystems.com",
                 PhoneNumber = "0201234567",
@@ -55,10 +50,10 @@ namespace vls.Migrations
             if (userManager.FindByName(admin.UserName) == null)
             {
                 //Add User Admin to Role Admin
-                var result = userManager.Create(admin, "pass1234");
+                var result = userManager.Create(admin, "password");
                 if (result.Succeeded)
                 {
-                    userManager.AddToRole(admin.Id, "Administrator");
+                    userManager.AddToRole(admin.Id, "Superman");
                 }
             }
 

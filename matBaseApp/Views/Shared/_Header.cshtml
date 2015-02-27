@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNet.Identity
+@using vls.Classes.Repositories
+@if (Request.IsAuthenticated)
+{
+    var user = new UserRepo().GetUser(User.Identity.GetUserId());
+
+    <ul id="loginDropdown" class="dropdown-content">
+        <li><a class="item" href="@Url.Action("ChangePassword", "Users")">Manage Account</a></li>
+        <li class="divider"></li>
+        <li><a class="item" href="@Url.Action("Logout","Users" )">Logout</a></li>
+    </ul>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="sass.html"><i class="mdi-action-search"></i></a></li>
+                <li><a href="components.html"><i class="mdi-action-view-module"></i></a></li>
+                <li><a href="javascript.html"><i class="mdi-navigation-refresh"></i></a></li>
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-button" href="#!" data-activates="loginDropdown">@user.FullName<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav fixed">
+                <li><a href="sass.html">Sass</a></li>
+                <li class="divider"></li>
+                <li><a href="components.html">Components</a></li>
+                <li class="divider"></li>
+                <li><a href="sass.html"><i class="mdi-action-search"></i></a></li>
+                <li class="divider"></li>
+                <li><a href="components.html"><i class="mdi-action-view-module"></i></a></li>
+                <li class="divider"></li>
+                <li><a href="javascript.html"><i class="mdi-navigation-refresh"></i></a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-button" href="#!" data-activates="loginDropdown">@user.FullName<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+    </nav>
+}
+@*else
+    {
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="sass.html"><i class="mdi-action-search"></i></a></li>
+                        <li><a href="components.html"><i class="mdi-action-view-module"></i></a></li>
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="sass.html"><i class="mdi-action-search"></i></a></li>
+                        <li><a href="components.html"><i class="mdi-action-view-module"></i></a></li>
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                </div>
+            </nav>
+        </div>
+    }*@
+
+        <script src="~/Content/js/app/header.js"></script>
