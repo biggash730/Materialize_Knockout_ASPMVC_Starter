@@ -1,3 +1,5 @@
+C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.Migrations.InitialMigration.resources
+C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\MatBaseApp.csproj.GenerateResource.Cache
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\images\logo.jpg
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\js\app\manageprofile.js
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\js\app\manageusers.js
@@ -5,7 +7,6 @@ C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\js\app\settings.js
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\js\app\menu.js
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Content\js\lib\moment.min.js
-C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\vls.dll.config
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\vls.dll
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\vls.pdb
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Antlr3.Runtime.dll
@@ -70,5 +71,5 @@ C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.dll
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.pdb
-C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.Migrations.InitialMigration.resources
-C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\MatBaseApp.csproj.GenerateResource.Cache
+C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\vls.dll.config
+C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\MatBaseApp.csprojResolveAssemblyReference.cache

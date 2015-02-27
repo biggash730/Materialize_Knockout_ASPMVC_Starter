@@ -257,9 +257,12 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\font\material-design-icons\LICENSE.txt" />
     <Content Include="Content\font\material-design-icons\Material-Design-Icons.svg" />
+    <Content Include="Content\images\lake.jpg" />
     <Content Include="Content\images\logo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\images\office.jpg" />
+    <Content Include="Content\js\app\reset.js" />
     <Content Include="Content\js\lib\accounting.min.js" />
     <Content Include="Content\js\lib\app.js" />
     <Content Include="Content\js\app\branches.js" />
@@ -375,6 +378,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Reset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201502270330342_Initial Migration.resx">

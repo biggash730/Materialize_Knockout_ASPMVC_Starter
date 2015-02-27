@@ -166,5 +166,35 @@ namespace vls.ApiControllers
             }
         }
 
+        [HttpPost]
+        [Route("users/Reset")]
+        public async Task<JsonData> Reset(UserViewModel model)
+        {
+            try
+            {
+                var db = new DataContext();
+                var userMan = new UserManager<MyUser>(new UserStore<MyUser>(db));
+                userMan.UserValidator = new UserValidator<MyUser>(userMan)
+                {
+                    AllowOnlyAlphanumericUserNames =
+                        false
+                };
+                var user = await userMan.FindByEmailAsync(model.Email);
+                if (user == null) throw new Exception("please check the email address");
+                //todo: generate a unique password and email it to the user
+                var newPassword = user.FullName.Substring(2,3)+user.PasswordHash.Substring(0,5);
+                var result = await userMan.RemovePasswordAsync(user.Id);
+                if (!result.Succeeded) throw new Exception(string.Join(", ", result.Errors));
+                var result2 = await userMan.AddPasswordAsync(user.Id, newPassword);
+                if (!result2.Succeeded) throw new Exception(string.Join(", ", result2.Errors));
+                //todo: Email the new password to the user
+                return DataHelpers.ReturnJsonData(null, true, "A new password has been emailed to your email address");
+            }
+            catch (Exception e)
+            {
+                return DataHelpers.ExceptionProcessor(e);
+            }
+        }
+
     }
 }

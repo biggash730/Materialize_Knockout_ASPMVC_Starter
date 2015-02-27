@@ -23,22 +23,27 @@
         
         self.login = function () {            
             self.showProgress(true);
-            //todo: Validate form input
-            if (self.Validated()) {
-                toast('Login initiated', 3000, 'rounded')
+            //todo: Validate form input and set the validated to true
+            if (!self.Validated()) {
+                toast('Login initiated', 2000, 'rounded')
                 $.post('users/login', { UserName: self.Username(), Password: self.Password(), RememberMe: self.RememberMe() }, function(rData) {
                     self.showProgress(false);
                     if (rData.Success) {
-                        showNag("Logged in Successfully", true);
+                        toast('Logged in Successfully', 3000, 'rounded')
                         localStorage.token = "Bearer " + rData.Message;
-                        setTimeout(function() { return true; }, 3000);
+                        setTimeout(function () { return true; }, 3000);
                         window.location = "/Home/Index";
-                    } else toast('Please check the login details', 6000, 'rounded')
+                    } else {
+                        toast('Please check the login details', 6000, 'rounded')
+                        self.showProgress(false);
+                        self.clearValues();
+                    }
 
                 });
                 //clear form 
                 self.clearValues();
             }
+            //self.showProgress(false);
         };
         
         self.clearValues = function () {

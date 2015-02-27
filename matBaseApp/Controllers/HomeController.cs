@@ -22,5 +22,10 @@ namespace vls.Controllers
         {
             return View();
         }
+
+        public ActionResult Reset()
+        {
+            return View();
+        }
     }
 }
