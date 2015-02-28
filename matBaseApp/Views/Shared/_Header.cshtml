@@ -3,84 +3,142 @@
 @if (Request.IsAuthenticated)
 {
     var user = new UserRepo().GetUser(User.Identity.GetUserId());
-    
 
-    <ul id="loginDropdown" class="dropdown-content">
-        <li>
-            <a href="@Url.Action("ChangePassword", "Users")">
-                <i class="mdi-action-assignment-ind"></i> Profile
-            </a>
-        </li>
-        <li class="divider"></li> 
-        <li>
-            <a href="@Url.Action("Logout", "Users")" onclick="ClearToken()">
-                <i class="mdi-action-exit-to-app"></i> Logout
-            </a>
-        </li>
-    </ul>
-
-    <nav class="top-nav light-blue lighten-1">
-        <div class="nav-wrapper">
-            <a href="@Url.Action("Index", "Home")" class="brand-logo">
-                <i class="large mdi-action-dashboard"></i> Mat_CSS
-            </a>
-            <ul class="right hide-on-med-and-down">
-                <!-- Dropdown Trigger -->
-                <li>
-                    <a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="loginDropdown">
-                        @user.FullName
-                        <i class="mdi-navigation-arrow-drop-down right"></i>
-                    </a>
-                </li>
-            </ul>
+    <header>
 
 
-            <ul id="nav-mobile" class="side-nav fixed">
-                <li class="logo ">
-                    <div class="card">
-                        A logo Here
-                    </div>
-                </li>
-                <li class="divider"></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li class="bold">
-                            <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Settings</a>
-                            <div class="collapsible-body" style="display: block;">
-                                <ul>
-                                    <li><a href="buttons.html">Users</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li class="bold">
-                            <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings-power right"></i> Config</a>
-                            <div class="collapsible-body" style="display: block;">
-                                <ul>
-                                    <li><a href="buttons.html">Countries</a></li>
-                                    <li><a href="buttons.html">Regions</a></li>
-                                    <li><a href="buttons.html">Cities</a></li>
-                                    <li><a href="badges.html">Administrators</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="dropdown-button hide-on-large-only" data-beloworigin="true" href="#!" data-activates="loginDropdown">
-                        @user.FullName
-                        <i class="mdi-navigation-arrow-drop-down right"></i>
-                    </a>
-                </li>
-                <li class="divider hide-on-large-only"></li>
-            </ul>
-            <div class="container">
-                <a href="#" data-activates="nav-mobile" class="button-collapse">
-                    <i class="mdi-navigation-menu"></i>
+        <ul id="loginDropdown" class="dropdown-content">
+            <li>
+                <a href="@Url.Action("ChangePassword", "Users")">
+                    <i class="mdi-action-assignment-ind"></i> Profile
                 </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="@Url.Action("Logout", "Users")" onclick="ClearToken()">
+                    <i class="mdi-action-exit-to-app"></i> Logout
+                </a>
+            </li>
+        </ul>
+
+        <nav class="top-nav light-blue lighten-1">
+            <div class="nav-wrapper">
+                <a href="@Url.Action("Index", "Home")" class="brand-logo">
+                    <i class="large mdi-action-dashboard"></i> AsorePa
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <!-- Dropdown Trigger -->
+                    <li>
+                        <a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="loginDropdown">
+                            @user.FullName
+                            <i class="mdi-navigation-arrow-drop-down right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="container">
+                    <a href="#" data-activates="nav-mobile" class="button-collapse">
+                        <i class="mdi-navigation-menu"></i>
+                    </a>
+                </div>
+
+                <ul id="nav-mobile" class="side-nav fixed">
+                    <li class="logo ">
+                        <div class="card black-text">
+                            A logo Here.
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Membership</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Financials</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Departments</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Minitries</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Events</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Reports</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings right"></i> Settings</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Users</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"><i class="mdi-action-settings-power right"></i> Configuration</a>
+                                <div class="collapsible-body" style="display: block;">
+                                    <ul class="pink lighten-4">
+                                        <li><a href="buttons.html">Countries</a></li>
+                                        <li><a href="buttons.html">Regions</a></li>
+                                        <li><a href="buttons.html">Cities</a></li>
+                                        <li><a href="badges.html">Administrators</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-button hide-on-large-only" data-beloworigin="true" href="#!" data-activates="loginDropdown">
+                            @user.FullName
+                            <i class="mdi-navigation-arrow-drop-down right"></i>
+                        </a>
+                    </li>
+                    <li class="divider hide-on-large-only"></li>
+                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 }
+    
 <script src="~/Content/js/app/header.js"></script>

@@ -34,7 +34,7 @@
                         setTimeout(function () { return true; }, 3000);
                         window.location = "/Home/Index";
                     } else {
-                        toast('Please check the login details', 6000, 'rounded')
+                        toast('Please check the login details', 5000, 'rounded')
                         self.showProgress(false);
                         self.clearValues();
                     }
