@@ -71,4 +71,5 @@ C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.dll
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\vls.pdb
+C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\bin\vls.dll.config
 C:\Users\Ofeibea\Desktop\Ras Gege\Projects\Mat_Knock_Starter_App\matBaseApp\obj\Debug\MatBaseApp.csprojResolveAssemblyReference.cache

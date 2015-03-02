@@ -196,5 +196,12 @@ namespace vls.ApiControllers
             }
         }
 
+        [HttpPost]
+        [Route("Roles/getall")]
+        public JsonData Get(RoleFilter filter)
+        {
+            return new RoleRepo().Get(filter);
+        }
+
     }
 }

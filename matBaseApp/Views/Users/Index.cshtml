@@ -3,290 +3,196 @@
     ViewBag.Title = "Index";
 }
 <div id="UsersPage">
-    <div class="ui raised purple segment">
-        <div class="ui ribbon purple huge label">
-            Manage Users
-        </div>
-        <div class="ui right floated animated fade positive button" data-bind="click: showAdd">
-            <div class="visible content">Add User</div>
-            <div class="hidden content">
-                <i class="add sign icon"></i>
+    <div class="container">
+        <div class="progress" data-bind="visible: showProgress">
+            <div class="indeterminate">
             </div>
         </div>
-        <div class="ui horizontal icon divider">
-            <i class="circular users icon"></i>
-        </div>
-
-        <div class="ui grid" data-bind="visible: showAddView" style="display: none;">
-            <div class="left floated three wide column"></div>
-            <div class="left floated ten wide column">
-                <div class="ui form raised teal segment" id="AddUserForm">
-                    <h4 class="ui huge header center aligned" data-bind="text: FormTitle"></h4>
-                    <div class="ui horizontal icon divider">
-                        <i class="circular users icon"></i>
-                    </div>
-                    <div class="two fields">
-                        <div class="field">
-                            <label>Username</label>
-                            <div class="ui left icon corner labeled icon input">
-                                <input type="text" placeholder="Username" name="username" id="username" data-bind="value: UserName">
-                                <i class="user icon"></i>
-                                <div class="ui corner label">
-                                    <i class="icon asterisk"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Password</label>
-                            <div class="ui left icon corner labeled icon input">
-                                <input type="password" name="password" id="password" data-bind="value: Password">
-                                <i class="lock icon"></i>
-                                <div class="ui corner label">
-                                    <i class="icon asterisk"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Full Name</label>
-                        <div class="ui left icon corner labeled icon input">
-                            <input type="text" name="fullname" placeholder="Full Name" data-bind="value: FullName">
-                            <i class="tag icon"></i>
-                            <div class="ui corner label">
-                                <i class="icon asterisk"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="three fields">
-                        <div class="field">
-                            <label>Email</label>
-                            <div class="ui left icon corner labeled icon input">
-                                <input type="email" name="email" placeholder="Email" data-bind="value: Email">
-                                <i class="unlink icon"></i>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Phone Number</label>
-                            <div class="ui left icon corner labeled icon input">
-                                <input type="tel" name="phonenumber" placeholder="Phone Number" data-bind="value: PhoneNumber">
-                                <i class="call square icon"></i>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Date of Birth</label>
-                            <div class="ui left icon corner labeled icon input">
-                                <input type="date" name="dateofbirth" placeholder="Date of Birth" data-bind="value: DateOfBirth">
-                                <i class="calendar icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Select Role</label>
-                        <select class="ui fluid selection input" data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>
-                    </div>
-                    <div class="field" data-bind="visible: IsAgent">
-                        <label>Select Branch</label>
-                        <select class="ui fluid selection input" data-bind="options: Branches, optionsText: 'Name', optionsValue: 'Id',  optionsCaption: 'Select Branch...', value: BranchId"></select>
-                    </div>
-                    <div class="ui buttons right floated">
-                        <div class="ui animated fade teal submit button" data-bind="click: add">
-                            <div class="visible content">Save</div>
-                            <div class="hidden content">
-                                <i class="save icon"></i>
-                            </div>
-                        </div>
-                        <div class="or"></div>
-                        <div class="ui animated fade red button" data-bind="click: closeForms">
-                            <div class="visible content">Close</div>
-                            <div class="hidden content">
-                                <i class="remove icon"></i>
-                            </div>
-                        </div>
-                    </div>
+        <div class="section">
+            <div class="row">
+                <div class="col s8 m8 l8">
+                    <h4>Manage Users</h4>
                 </div>
-                <div class="ui divider"></div>
-            </div>
-            <div class="right floated three wide column"></div>
-        </div>
-
-        <div class="ui grid" data-bind="visible: showViewView" style="display: none;">
-            <div class="left floated three wide column"></div>
-            <div class="left floated ten wide column">
-                <div class="ui form raised orange segment" id="ViewUserForm">
-                    <h4 class="ui huge header center aligned">
-                        <i class="home icon"></i>
-                        User Details
-                    </h4>
-                    <div class="ui horizontal icon divider">
-                        <i class="circular user icon"></i>
-                    </div>
-                    <div class="two fields">
-                        <div class="field">
-                            <label>Username</label>
-                            <div class="ui raised secondary segment">
-                                <p data-bind="text: UserName"></p>
-                                <div class="ui corner label">
-                                    <i class="icon user"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Full Name</label>
-                            <div class="ui raised secondary segment">
-                                <p data-bind="text: FullName"></p>
-                                <div class="ui corner label">
-                                    <i class="icon tag"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="three fields">
-                        <div class="field">
-                            <label>Email</label>
-                            <div class="ui raised secondary segment">
-                                <p data-bind="text: Email"></p>
-                                <div class="ui corner label">
-                                    <i class="icon url"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Phone Number</label>
-                            <div class="ui raised secondary segment">
-                                <p data-bind="text: PhoneNumber"></p>
-                                <div class="ui corner label">
-                                    <i class="icon phone sign"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Date of Birth</label>
-                            <div class="ui raised secondary segment">
-                                <p data-bind="text: DateOfBirth"></p>
-                                <div class="ui corner label">
-                                    <i class="icon calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Role</label>
-                        <div class="ui raised secondary segment">
-                            <p data-bind="text: Roles"></p>
-                            <div class="ui corner label">
-                                <i class="icon flag"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field" data-bind="visible: IsAgent">
-                        <label>Branch Name</label>
-                        <div class="ui raised secondary segment">
-                            <p data-bind="text: BranchName"></p>
-                            <div class="ui corner label">
-                                <i class="icon flag"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui buttons right floated">
-                        <div class="ui animated fade red button" data-bind="click: closeForms">
-                            <div class="visible content">Close</div>
-                            <div class="hidden content">
-                                <i class="remove icon"></i>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col s4 m4 l4">
+                    <a class="right btn-floating btn waves-effect waves-light green" data-bind="click: showAdd"><i class="mdi-content-add"></i></a>
                 </div>
-                <div class="ui divider"></div>
+                <div class="col s12 m12 l12 divider"></div>
             </div>
-            <div class="right floated three wide column"></div>
         </div>
-        <div class="right floated ui pagination menu">
-            <a class="icon item" data-bind="click: prevPage">
-                <i class="left arrow icon"></i>
-            </a>
-            <a class="active item" data-bind="text: Page()+1">
-            </a>
-            <a class="icon item" data-bind="click: nextPage">
-                <i class="right arrow icon"></i>
-            </a>
+        <div class="section">
+            <div class="row">                
+                <div class="col s12 m12 l12">
+                    <table class="bordered hoverable responsive-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Role</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody data-bind="foreach: data">
+                            <tr data-bind="attr: { 'class' :( $data.IsActive ? '' :'error')}">
+                                <td data-bind="text: ($parent.Page() * $parent.Size() ) + $index() + 1" class="left floated"></td>
+                                <td data-bind="text: $data.UserName"></td>
+                                <td data-bind="text: $data.FullName"></td>
+                                <td data-bind="text: $data.Email"></td>
+                                <td data-bind="text: $data.PhoneNumber"></td>
+                                <td data-bind="text: $data.Roles"></td>
+                                <td>
+                                    
+                                    <a class="right btn-floating btn waves-effect waves-light red darken-2" data-bind="click: $parent.showDeactivate.bind($root)">
+                                        <i class="mdi-content-clear"></i>
+                                    </a>
+                                    <a class="right btn-floating btn waves-effect waves-light teal" data-bind="click: $parent.showEdit.bind($root)">
+                                        <i class="mdi-content-create"></i>
+                                    </a>
+                                    <a class="right btn-floating btn waves-effect waves-light  yellow darken-3 tooltipped" data-bind="click: $parent.showView.bind($root)" data-tooltip="I am tooltip" data-delay="50" data-position="top">
+                                        <i class="mdi-content-drafts"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <table class="ui table raised segment">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Username</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Role</th>
-                    <th>Branch</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: data">
-                <tr data-bind="attr: { 'class' :( $data.IsActive ? '' :'error')}">
-                    <td data-bind="text: ($parent.Page() * $parent.Size() ) + $index() + 1" class="left floated"></td>
-                    <td data-bind="text: $data.UserName"></td>
-                    <td data-bind="text: $data.FullName"></td>
-                    <td data-bind="text: $data.Email"></td>
-                    <td data-bind="text: $data.PhoneNumber"></td>
-                    <td data-bind="text: $data.Roles"></td>
-                    <td data-bind="text: $data.Branch.Name"></td>
-                    <td>
-                        <div class="ui buttons right floated">
-                            <div class="ui animated fade purple button" data-bind="click: $parent.showView.bind($root)">
-                                <div class="visible content">View</div>
-                                <div class="hidden content">
-                                    <i class="unhide icon"></i>
-                                </div>
-                            </div>
-                            <div class="or"></div>
-                            <div class="ui animated fade teal button" data-bind="click: $parent.showEdit.bind($root)">
-                                <div class="visible content">Edit</div>
-                                <div class="hidden content">
-                                    <i class="edit icon"></i>
-                                </div>
-                            </div>
-                            <div class="or"></div>
-                            <div class="ui animated fade red button" data-bind="click: $parent.showDeactivate.bind($root)">
-                                <div class="visible content" data-bind="text:( $data.IsActive ? 'Deactivate' :'Activate')"></div>
-                                <div class="hidden content">
-                                    <i class="remove sign icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
-    <div id="UserDeactivateModal" class="ui small modal">
-        <i class="close icon"></i>
-        <div class="header">
-            Activate/Deactivate User Account
-        </div>
-        <div class="content">
-            Do you really want to activate/deactivate this users account?
-        </div>
-        <div class="actions">
-            <div class="ui buttons">
-                <div class="ui animated fade teal button" data-bind="click: deactivate">
-                    <div class="visible content">Yes</div>
-                    <div class="hidden content">
-                        <i class="checked checkbox icon"></i>
-                    </div>
-                </div>
-                <div class="or"></div>
-                <div class="ui animated fade red button">
-                    <div class="visible content">No</div>
-                    <div class="hidden content">
-                        <i class="remove circle icon"></i>
-                    </div>
+    <div id="viewModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4 data-bind="text: FormTitle"></h4>
+            <div class="card">
+                <div class="card-content">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="username" type="text" class="validate" data-bind="value: UserName">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="password" type="password" class="validate" data-bind="value: Password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="fullname" type="text" class="validate" data-bind="value: FullName">
+                                <label for="fullname">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="email" type="text" class="validate" data-bind="value: Email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
+                                <label for="phonenumber">Phone Number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
+                                <label for="dob">Date of Birth</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>Role</label>
+                                @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
+                                <select>
+                                    <option value="" disabled selected>Choose Role</option>
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Superman">Superman</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
+        <div class="modal-footer">
+            <div class="divider"></div>
+            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h4 data-bind="text: FormTitle"></h4>
+            <div class="card">
+                <div class="card-content">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="username" type="text" class="validate" data-bind="value: UserName">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="password" type="password" class="validate" data-bind="value: Password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="fullname" type="text" class="validate" data-bind="value: FullName">
+                                <label for="fullname">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="email" type="text" class="validate" data-bind="value: Email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
+                                <label for="phonenumber">Phone Number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
+                                <label for="dob">Date of Birth</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>Role</label>
+                                @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
+                                <select>
+                                    <option value="" disabled selected>Choose Role</option>
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Superman">Superman</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="divider"></div>
+            <button class="right btn waves-effect waves-light green" data-bind="click: add">
+                Save
+                <i class="mdi-content-save right"></i>
+            </button>
         </div>
     </div>
 </div>
+
+
 
 <script src="~/Content/js/app/manageusers.js"></script>
