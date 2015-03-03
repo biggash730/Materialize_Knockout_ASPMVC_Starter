@@ -2,197 +2,197 @@
 @{
     ViewBag.Title = "Index";
 }
-<div id="UsersPage">
-    <div class="container">
-        <div class="progress" data-bind="visible: showProgress">
-            <div class="indeterminate">
-            </div>
-        </div>
-        <div class="section">
-            <div class="row">
-                <div class="col s8 m8 l8">
-                    <h4>Manage Users</h4>
+<main>
+    <div id="UsersPage">
+        <div class="">
+            <div class="progress" data-bind="visible: showProgress">
+                <div class="indeterminate">
                 </div>
-                <div class="col s4 m4 l4">
-                    <a class="right btn-floating btn waves-effect waves-light green" data-bind="click: showAdd"><i class="mdi-content-add"></i></a>
-                </div>
-                <div class="col s12 m12 l12 divider"></div>
             </div>
-        </div>
-        <div class="section">
-            <div class="row">                
-                <div class="col s12 m12 l12">
-                    <table class="bordered hoverable responsive-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Username</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Role</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+            <div class="section">
+                <div class="row">
+                    <div class="col s8 m8 l8">
+                        <h4>Manage Users</h4>
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <a class="right btn-floating btn-large waves-effect waves-light green" data-bind="click: showAdd"><i class="mdi-content-add"></i></a>
+                    </div>
+                    <div class="col s12 m12 l12 divider"></div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <table class="bordered hoverable responsive-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Username</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Role</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
 
-                        <tbody data-bind="foreach: data">
-                            <tr data-bind="attr: { 'class' :( $data.IsActive ? '' :'error')}">
-                                <td data-bind="text: ($parent.Page() * $parent.Size() ) + $index() + 1" class="left floated"></td>
-                                <td data-bind="text: $data.UserName"></td>
-                                <td data-bind="text: $data.FullName"></td>
-                                <td data-bind="text: $data.Email"></td>
-                                <td data-bind="text: $data.PhoneNumber"></td>
-                                <td data-bind="text: $data.Roles"></td>
-                                <td>
-                                    
-                                    <a class="right btn-floating btn waves-effect waves-light red darken-2" data-bind="click: $parent.showDeactivate.bind($root)">
-                                        <i class="mdi-content-clear"></i>
-                                    </a>
-                                    <a class="right btn-floating btn waves-effect waves-light teal" data-bind="click: $parent.showEdit.bind($root)">
-                                        <i class="mdi-content-create"></i>
-                                    </a>
-                                    <a class="right btn-floating btn waves-effect waves-light  yellow darken-3 tooltipped" data-bind="click: $parent.showView.bind($root)" data-tooltip="I am tooltip" data-delay="50" data-position="top">
-                                        <i class="mdi-content-drafts"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <tbody data-bind="foreach: data">
+                                <tr data-bind="attr: { 'class' :( $data.IsActive ? '' :'error')}">
+                                    <td data-bind="text: ($parent.Page() * $parent.Size() ) + $index() + 1" class="left floated"></td>
+                                    <td data-bind="text: $data.UserName"></td>
+                                    <td data-bind="text: $data.FullName"></td>
+                                    <td data-bind="text: $data.Email"></td>
+                                    <td data-bind="text: $data.PhoneNumber"></td>
+                                    <td data-bind="text: $data.Roles"></td>
+                                    <td>
+
+                                        <a class="right btn-floating btn waves-effect waves-light red darken-2" data-bind="click: $parent.showDeactivate.bind($root)">
+                                            <i class="mdi-content-clear"></i>
+                                        </a>
+                                        <a class="right btn-floating btn waves-effect waves-light teal" data-bind="click: $parent.showEdit.bind($root)">
+                                            <i class="mdi-content-create"></i>
+                                        </a>
+                                        <a class="right btn-floating btn waves-effect waves-light  yellow darken-3 tooltipped" data-bind="click: $parent.showView.bind($root)" data-tooltip="I am tooltip" data-delay="50" data-position="top">
+                                            <i class="mdi-content-drafts"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="viewModal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4 data-bind="text: FormTitle"></h4>
+                <div class="card">
+                    <div class="card-content">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="username" type="text" class="validate" data-bind="value: UserName">
+                                    <label for="username">Username</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="password" type="password" class="validate" data-bind="value: Password">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="fullname" type="text" class="validate" data-bind="value: FullName">
+                                    <label for="fullname">Full Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="email" type="text" class="validate" data-bind="value: Email">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
+                                    <label for="phonenumber">Phone Number</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
+                                    <label for="dob">Date of Birth</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <label>Role</label>
+                                    @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
+                                    <select>
+                                        <option value="" disabled selected>Choose Role</option>
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="Superman">Superman</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
+            </div>
+        </div>
+
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <h4 data-bind="text: FormTitle"></h4>
+                <div class="card">
+                    <div class="card-content">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="username" type="text" class="validate" data-bind="value: UserName">
+                                    <label for="username">Username</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="password" type="password" class="validate" data-bind="value: Password">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="fullname" type="text" class="validate" data-bind="value: FullName">
+                                    <label for="fullname">Full Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="email" type="text" class="validate" data-bind="value: Email">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
+                                    <label for="phonenumber">Phone Number</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-quick-contacts-mail prefix"></i>
+                                    <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
+                                    <label for="dob">Date of Birth</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <label>Role</label>
+                                    @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
+                                    <select>
+                                        <option value="" disabled selected>Choose Role</option>
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="Superman">Superman</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="divider"></div>
+                <button class="right btn waves-effect waves-light green" data-bind="click: add">
+                    Save
+                    <i class="mdi-content-save right"></i>
+                </button>
             </div>
         </div>
     </div>
-
-    <div id="viewModal" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4 data-bind="text: FormTitle"></h4>
-            <div class="card">
-                <div class="card-content">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="username" type="text" class="validate" data-bind="value: UserName">
-                                <label for="username">Username</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="password" type="password" class="validate" data-bind="value: Password">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="fullname" type="text" class="validate" data-bind="value: FullName">
-                                <label for="fullname">Full Name</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="email" type="text" class="validate" data-bind="value: Email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
-                                <label for="phonenumber">Phone Number</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
-                                <label for="dob">Date of Birth</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <label>Role</label>
-                                @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
-                                <select>
-                                    <option value="" disabled selected>Choose Role</option>
-                                    <option value="Administrator">Administrator</option>
-                                    <option value="Superman">Superman</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div class="divider"></div>
-            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
-        </div>
-    </div>
-
-    <div id="addModal" class="modal">
-        <div class="modal-content">
-            <h4 data-bind="text: FormTitle"></h4>
-            <div class="card">
-                <div class="card-content">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="username" type="text" class="validate" data-bind="value: UserName">
-                                <label for="username">Username</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="password" type="password" class="validate" data-bind="value: Password">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="fullname" type="text" class="validate" data-bind="value: FullName">
-                                <label for="fullname">Full Name</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="email" type="text" class="validate" data-bind="value: Email">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="phonenumber" type="tel" class="validate" data-bind="value: PhoneNumber">
-                                <label for="phonenumber">Phone Number</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                                <input id="dob" type="date" class="validate" data-bind="value: DateOfBirth">
-                                <label for="dob">Date of Birth</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <label>Role</label>
-                                @*<select data-bind="options: RolesData, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select Role...', value: RoleName, event:{change: roleChanged}"></select>*@
-                                <select>
-                                    <option value="" disabled selected>Choose Role</option>
-                                    <option value="Administrator">Administrator</option>
-                                    <option value="Superman">Superman</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div class="divider"></div>
-            <button class="right btn waves-effect waves-light green" data-bind="click: add">
-                Save
-                <i class="mdi-content-save right"></i>
-            </button>
-        </div>
-    </div>
-</div>
-
+</main>
 
 
 <script src="~/Content/js/app/manageusers.js"></script>

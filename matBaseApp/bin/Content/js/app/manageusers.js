@@ -57,6 +57,7 @@
         });
         // $('#dob').datepicker();
         $('select').material_select();
+        $('.tooltipped').tooltip({ delay: 50 });
 
         self.roleChanged = function () {
             self.IsAgent(false);
@@ -150,18 +151,20 @@
         self.showDeactivate = function (data) {
             //set the values Here
             self.Id(data.Id);
-            $('#UserDeactivateModal').modal('show');
+            //$('#UserDeactivateModal').modal('show');
+            toast('<span>Activate/Deactivate User Account. Are you sure?</span><a class=&quot;btn-flat yellow-text&quot; data-bind=&quot;click: deactivate&quot;> Yes<a>', 5000)
         };
 
         self.deactivate = function () {
-            $.post('users/deactivate?id=' + self.Id(), function (rData) {
+            toast('deactivate user', 3000);
+            /*$.post('users/deactivate?id=' + self.Id(), function (rData) {
                 if (rData.Success) {
                     //clear form 
                     self.clearValues();
                     //get all data
                     self.getData();
                 }
-            });
+            });*/
         };
 
         self.clearValues = function () {

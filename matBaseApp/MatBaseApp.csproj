@@ -183,6 +183,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiControllers\ReportsController.cs" />
     <Compile Include="ApiControllers\UsersController.cs">
       <SubType>Code</SubType>
     </Compile>
